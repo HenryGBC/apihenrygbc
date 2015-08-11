@@ -11,7 +11,7 @@ class Blog(models.Model):
     image = models.ImageField(upload_to='media/', blank=True)
     content = models.TextField()
     fecha = models.DateTimeField(auto_now=True)
-    usuario = models.ForeignKey(User, blank=True, null=True)
+    usuario = models.ForeignKey(User)
     url = models.SlugField(max_length=140, blank=True)
 
     def save(self, *args, **kwargs):
