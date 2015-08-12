@@ -13,44 +13,19 @@ from rest_framework import generics
 from blog.api.serializers import BlogSerializer
 
 """
-SERIALIZERS WITH  CLASS BASED VIEWS USING MIXINS CLASS
+SERIALIZERS WITH  USING GENERIC CLASS BASED VIEWS
 """
 
-class BlogListView(mixins.ListModelMixin,
-                   mixins.CreateModelMixin,
-                   generics.GenericAPIView):
-    """
-    List all entry blogs or create a new entry
-    """
+class BlogListView(generics.ListCreateAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
-    def get(self, request, *args, **kwargs):
-        return self.list(request, *args, **kwargs)
-
-    def post(self, request, *args, **kwargs):
-        return self.crete(request, *args, **kwargs)
 
 
-
-class BlogEntryDetail(mixins.RetrieveModelMixin,
-                      mixins.UpdateModelMixin,
-                      mixins.DestroyModelMixin,
-                      generics.GenericAPIView):
-    """
-    Retrieve, update or delete a entry blog
-    """
+class BlogEntryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
 
-    def get(self, request, *args, **kwargs):
-        return self.retrieve(request, *args, **kwargs)
-
-    def put(self, request, *args, **kwargs):
-        return self.update(request, *args, **kwargs)
-
-    def delete(self, request, *args, **kwargs):
-        return self.destroy(request, *args, **kwargs)
 
 
 
