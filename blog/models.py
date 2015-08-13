@@ -10,8 +10,8 @@ class Blog(models.Model):
     resume = models.CharField(max_length=255)
     image = models.ImageField(upload_to='media/', blank=True)
     content = models.TextField()
-    fecha = models.DateTimeField(auto_now=True)
-    usuario = models.ForeignKey(User)
+    date = models.DateTimeField(auto_now=True)
+    user = models.ForeignKey(User, related_name='blog')
     url = models.SlugField(max_length=140, blank=True)
 
     def save(self, *args, **kwargs):

@@ -13,7 +13,7 @@ from rest_framework import generics
 from blog.api.serializers import BlogSerializer
 
 """
-SERIALIZERS WITH  USING GENERIC CLASS BASED VIEWS
+SERIALIZERS USING GENERIC CLASS BASED VIEWS
 """
 
 class BlogListView(generics.ListCreateAPIView):
