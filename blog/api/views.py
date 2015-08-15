@@ -14,6 +14,8 @@ from rest_framework import mixins
 from rest_framework import generics
 from blog.api.serializers import BlogSerializer, UserSerializer
 
+from oauth2_provider.ext.rest_framework import TokenHasReadWriteScope, TokenHasScope
+
 """
 SERIALIZERS USING GENERIC CLASS BASED VIEWS
 """
@@ -40,7 +42,7 @@ SERIALIZERS OF USERS USING GENERIC CLASS BASED VIEWS
 class UserList(generics.ListAPIView):
     queryset = User.objects.all()
     serializer_class = UserSerializer
-    permission_classes = (permissions.IsAuthenticated,)
+    permission_classes = (permissions.IsAuthenticated, TokenHasReadWriteScope)
 
 class UserDetail(generics.RetrieveAPIView):
     queryset = User.objects.all()
