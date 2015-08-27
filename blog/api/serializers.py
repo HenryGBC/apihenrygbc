@@ -8,6 +8,7 @@ class BlogSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
         fields = ('id', 'title', 'resume', 'image', 'content', 'date', 'user', 'url' )
+        lookup_field='url'
 
 
 

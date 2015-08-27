@@ -7,7 +7,7 @@ urlpatterns = [
     #url(r'^blog/$', views.blog_list),
     #url(r'^blog/(?P<pk>[0-9]+)/$', views.blog_entry_detail),
     url(r'^blog/$', views.BlogListView.as_view()),
-    url(r'^blog/(?P<pk>[0-9]+)/$', views.BlogEntryDetail.as_view()),
+    url(r'^blog/(?P<url>[-_\w]+)/$', views.BlogEntryDetail.as_view()),
     url(r'^users/$', views.UserList.as_view()),
     url(r'^users/(?P<pk>[0-9]+)/$', views.UserDetail.as_view()),
     url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),

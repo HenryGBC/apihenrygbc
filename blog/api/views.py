@@ -31,6 +31,7 @@ class BlogListView(generics.ListCreateAPIView):
 class BlogEntryDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = Blog.objects.all()
     serializer_class = BlogSerializer
+    lookup_field='url'
 
 
 
